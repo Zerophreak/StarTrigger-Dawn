@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuoxx2onyrkhe"]
+
+[ext_resource type="Script" uid="uid://bdss1qito54l7" path="res://Scenes/Player/Player.cs" id="1_ft8w5"]
+[ext_resource type="Texture2D" uid="uid://cqr1x0nadrewo" path="res://assets/ships/ship_human.png" id="1_s0eop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8w5"]
+size = Vector2(31, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h54ih"]
+radius = 15.0333
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ft8w5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_s0eop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ft8w5")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h54ih")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
