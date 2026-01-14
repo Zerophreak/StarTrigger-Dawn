@@ -7,26 +7,29 @@
 size = Vector2(31, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h54ih"]
-radius = 15.0333
+radius = 17.0294
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite")]
 script = ExtResource("1_ft8w5")
+_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_s0eop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_ft8w5")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_h54ih")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HurtTimer" type="Timer" parent="."]
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
